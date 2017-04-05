@@ -9,9 +9,12 @@
 This is a simple AddressBook backend API created for the STRV applyment, contains the following endpoints:
 
 ```
-(POST) [host][base-url]/api/v1/users - Register new user
+(POST) https://strvaddressbook.herokuapp.com/api/v1/users - Register new user
 
-(POST) #{base-uri}
+(POST) https://strvaddressbook.herokuapp.com/session - Sign-in
+(DELETE) https://strvaddressbook.herokuapp.com/session - Sign-out
+
+
 
 ```
 

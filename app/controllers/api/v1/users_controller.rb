@@ -14,6 +14,10 @@ module Api
       def create
         user = User.new(user_params)
         if user.save
+          organization = Organization.find(organization_params)
+          if organization
+            user.organizations << organization
+          end
           render json: user, status: :created
         else
           respond_with_errors(user)
@@ -36,7 +40,13 @@ module Api
       end
 
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :organization_id, {organization_ids: []}).except(:organization_id, :organization_ids)
+      end
+
+      def organization_params
+        if params[:user].include?(:organization_id)
+          params[:user][:organization_id]
+        end
       end
     end
   end
