@@ -40,7 +40,7 @@ module Api
       end
 
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation, :organization_id, {organization_ids: []}).except(:organization_id, :organization_ids)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :organization_id).except(:organization_id)
       end
 
       def organization_params

@@ -59,6 +59,6 @@ end
 gem 'knock'
 gem 'authority', '~> 3.2.2'
 gem 'rolify'
-
+gem 'active_attr'
 
 ruby '2.4.0'

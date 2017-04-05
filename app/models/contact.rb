@@ -1,12 +1,15 @@
-class Contact < ApplicationRecord
-  resourcify
+class Contact
+  #resourcify
 
+  include ActiveAttr::Model
   include Authority::Abilities
   include FirebaseHelper
 
-  attr_accessor :id, :name, :organization_id
+  attribute :id
+  attribute :name
+  attribute :organization_id
 
-  belongs_to :organization
+  attr_accessor :id, :name, :organization_id
 
   validates :name, presence: true
 
