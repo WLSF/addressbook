@@ -1,9 +1,19 @@
 [firebase-url]: https://firebase.com
 [rfc-http-url]: https://www.ietf.org/rfc/rfc2616.txt
+[base-url]: https://strvaddressbook.herokuapp.com/
 
 # Backend Test Project - Addressbook
 
-Your task is to implement a simple AddressBook backend API. Detailed specifications for the test project are provided below. We estimate that you will not need more than a single weekend at relaxed coding speed to implement it.
+>Your task is to implement a simple AddressBook backend API. Detailed specifications for the test project are provided below. We estimate that you will not need more than a single weekend at relaxed coding speed to implement it.
+
+This is a simple AddressBook backend API created for the STRV applyment, contains the following endpoints:
+
+```
+(POST) [host][base-url]/api/v1/users - Register new user
+
+(POST) #{base-uri}
+
+```
 
 ## Project description
 
