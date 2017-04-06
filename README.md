@@ -6,30 +6,51 @@
 
 >Your task is to implement a simple AddressBook backend API. Detailed specifications for the test project are provided below. We estimate that you will not need more than a single weekend at relaxed coding speed to implement it.
 
-This is a simple AddressBook backend API created for the STRV applyment, contains the following endpoints:
+This is a simple AddressBook backend API created for the STRV applyment.
+
+## Project description
+
+>The addressbook app will be used by your users to perform the following tasks:
+
+>- Register new user account(s) under an organization
+>- Manage contacts of the organization
+
+>Each user should be associated with one or more organizations (can be chosen by the user himself during the registration). Every organization will have its own addressbook (list of contacts), which all of the organization's users can manage. Organizations are then managed by Admin user.
+
+When creating a new User, it needs the following params: **[name, email, password, password_confirmation, organization_id]**
+
+*organization_id* can be even an Integer value or an Array of Integers
+
+Once logged-in the User can create, update and delete Contacts.
+
+## Technical details
+
+>Your backend should be able to serve all kinds of clients (which you do not have to implement 😀) - both mobile apps and websites using a RESTful API. The following technical requirements are placed on your implementation:
+
+The RESTful API contains the following endpoints:
 
 ```
-(POST) https://strvaddressbook.herokuapp.com/api/v1/users - Register new user
+(POST) https://strvaddressbook.herokuapp.com/api/v1/users - Register new User
 
 (POST) https://strvaddressbook.herokuapp.com/session - Sign-in
 (DELETE) https://strvaddressbook.herokuapp.com/session - Sign-out
 
 
+[These endpoints are reachable for every authenticated user]
+(POST) https://strvaddressbook.herokuapp.com/api/v1/contacts - Create new Contact
+(PUT) https://strvaddressbook.herokuapp.com/api/v1/contacts/:id - Edit an existing Contact
+(DELETE) https://strvaddressbook.herokuapp.com/api/v1/contacts/:id - Delete an existing Contact
+[end]
 
+[These endpoints are reachable only for an authenticated admin]
+(GET) https://strvaddressbook.herokuapp.com/api/v1/organizations - List all Organizations
+(POST) https://strvaddressbook.herokuapp.com/api/v1/organizations - Create new Organization
+(GET) https://strvaddressbook.herokuapp.com/api/v1/organizations/:id - Retrieves an Organization by id
+(PUT) https://strvaddressbook.herokuapp.com/api/v1/organizations/:id - Edit an existing Organization
+(DELETE) https://strvaddressbook.herokuapp.com/api/v1/organizations/:id - Delete an existing Organization
+(GET) https://strvaddressbook.herokuapp.com/api/v1/organizations/:id/addressbook - List all Contacts located into the Organization addressbook
+[end]
 ```
-
-## Project description
-
-The addressbook app will be used by your users to perform the following tasks:
-
-- Register new user account(s) under an organization
-- Manage contacts of the organization
-
-Each user should be associated with one or more organizations (can be chosen by the user himself during the registration). Every organization will have its own addressbook (list of contacts), which all of the organization's users can manage. Organizations are then managed by Admin user.
-
-## Technical details
-
-Your backend should be able to serve all kinds of clients (which you do not have to implement 😀) - both mobile apps and websites using a RESTful API. The following technical requirements are placed on your implementation:
 
 ### API
 
@@ -84,7 +105,24 @@ How do you structure API endpoints? Do you follow REST principles? Do you make u
 
 ### Development and deployment
 
-How hard is it to run your project locally? And how hard is it to deploy it?
+>How hard is it to run your project locally? And how hard is it to deploy it?
+
+All the dependencies are inside the Gemfile, to run this project locally you just need to [clone][git@github.com:WLSF/addressbook.git] this repository, and run it using rails tools.
+
+```
+git clone git@github.com:WLSF/addressbook.git
+cd addressbook
+bundle install
+rake db:migrate
+rake db:seed
+rails s
+```
+
+This project uses Heroku, Terraform and Codeship.
+
+The deploy of a new version requires a push to the repository, the Codeship takes care of the CI.
+
+And the Terraform is responsible for the deployment of new machines.
 
 ### New language features
 
