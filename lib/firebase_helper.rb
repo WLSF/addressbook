@@ -3,9 +3,6 @@ module FirebaseHelper
   base_uri = "https://addressbook-contacts.firebaseio.com"
   secret_key = "AIzaSyCsS2AcN4yZY8iQwJGtph29PWHcQd3tsl4"
 
-  #base_uri = ENV['FIREBASE_URI']
-  #secret_key = ENV['FIREBASE_SECERT_KEY']
-
   $firebase = Firebase::Client.new(base_uri, secret_key)
 
   def self.push(value)
