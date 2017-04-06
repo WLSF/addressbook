@@ -21,6 +21,7 @@ Once logged-in the User can create, update and delete Contacts.
 - The Infrastructure was planned to be something scalable using Terraform, Kubernetes, some of the CI tool, to manage deployment of code and Infrastructure, unfortunately AWS and Heroku free versions are very limited.
 - This repository contains **master** and **development** branches, to deploy a new version, just use *git push* into master.
 
+
 ### 🔥 Security
 
 The user has been created with the rails authentication password_digest and has_secure_password methods.
@@ -91,7 +92,7 @@ rails s
 This project uses **Heroku**, **Terraform** and **Codeship**.
 
 **Heroku** to host the application (The free version with SSL).
-**Codeship** to CI, deployments of new versions requires just a git push on the repository
+**Codeship** to CI, deployments of new versions requires just a git push on the repository.
 *I have 2 years of experience using Jenkins as well, both of the tools are amazing to control the versions which can be released to the server without breaking the currently App, and they make the deployment very easier for developers.*
 
 **Terraform** to IaC, deployment of new machines.
