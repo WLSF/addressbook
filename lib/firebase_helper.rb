@@ -1,9 +1,8 @@
 module FirebaseHelper
 
   base_uri = "https://addressbook-contacts.firebaseio.com"
-  secret_key = "AIzaSyCsS2AcN4yZY8iQwJGtph29PWHcQd3tsl4"
 
-  $firebase = Firebase::Client.new(base_uri, secret_key)
+  $firebase = Firebase::Client.new(base_uri)
 
   def self.push(value)
     response = $firebase.push("contacts", {
