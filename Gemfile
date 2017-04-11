@@ -62,6 +62,6 @@ gem 'rolify'
 gem 'active_attr'
 
 gem 'apipie-rails'
-#gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-cors', :require => 'rack/cors'
 
 ruby '2.4.0'
