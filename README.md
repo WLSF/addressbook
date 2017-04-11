@@ -55,7 +55,6 @@ The RESTful API contains the following endpoints:
 (POST)    https://strvaddressbook.herokuapp.com/api/v1/users - Register new User
 
 (POST)    https://strvaddressbook.herokuapp.com/session - Sign-in
-(DELETE)  https://strvaddressbook.herokuapp.com/session - Sign-out
 
 
 [These endpoints are reachable for every authenticated user]

@@ -12,14 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20170405044231) do
 
-  create_table "contacts", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "organization_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["organization_id"], name: "index_contacts_on_organization_id"
-  end
-
   create_table "organizations", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false

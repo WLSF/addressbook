@@ -37,7 +37,7 @@ module Api
         end
 
         context 'when the user is authorized' do
-          before { post '/api/v1/organizations', params: valid_attributes, headers: authorization }
+          before { post '/api/v1/organizations', params: valid_attributes, headers: authorization}
 
           it 'creates an organization' do
             expect(JSON.parse(response.body)['name']).to eq(valid_attributes[:organization][:name])

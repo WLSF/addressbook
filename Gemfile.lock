@@ -46,6 +46,9 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    apipie-rails (0.4.0)
+      json
+      rails (>= 4.0)
     arel (7.1.4)
     authority (3.2.2)
       activesupport (>= 3.0.0)
@@ -99,6 +102,7 @@ GEM
     pg (0.19.0)
     puma (3.8.2)
     rack (2.0.1)
+    rack-cors (0.4.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.2)
@@ -180,6 +184,7 @@ PLATFORMS
 DEPENDENCIES
   active_attr
   active_model_serializers
+  apipie-rails
   authority (~> 3.2.2)
   bcrypt (~> 3.1.7)
   byebug
@@ -191,6 +196,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   pg
   puma (~> 3.0)
+  rack-cors
   rails (~> 5.0.2)
   rails_12factor
   rolify

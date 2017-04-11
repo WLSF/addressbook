@@ -3,14 +3,28 @@ module Api
     class UsersController < ApplicationController
       before_action :authenticate_user, except: [:create]
 
-      def index
-        render json: User.all, status: :ok
+      resource_description do
+        description 'This endpoints can be used by any User without Authentication'
       end
 
-      def show
-        render json: User.find(params[:id]), status: :ok
+      api :POST, 'api/v1/users/', "Create a new User"
+      param :user, Hash, :desc => "Param to hold the User information", :required => true do
+        param :name, String, :desc => "Name of the User", :required => true
+        param :email, String, :desc => "Email of the User", :required => true
+        param :password, String, :desc => "Password of the User", :required => true
+        param :password_confirmation, String, :desc => "Confirmation of the previous password", :required => true
+        param :organization_id, [:number, Hash], :desc => "Organization ID, it can be a single ID or a list of id's", :required => true
       end
-
+      error 400, 'Param is missing or the value is empty: user'
+      error 404, 'Organization not found by organization_id'
+      error 422, 'Params can\'t be blank, password is too short (8 - 20 chars) or password doesn\'t match'
+      formats ['json']
+      example 'HTTP Code: 201
+{
+  "id": 1,
+  "name": "User Test",
+  "email": "emailtest@gmail.com"
+}'
       def create
         user = User.new(user_params)
         if user.save
@@ -22,21 +36,6 @@ module Api
         else
           respond_with_errors(user)
         end
-      end
-
-      def update
-        user = User.update(params[:id], user_params)
-        if user
-          render json: user, status: :ok
-        else
-          respond_with_errors(user)
-        end
-      end
-
-      def destroy
-        user = User.find(params[:id])
-        user.destroy
-        render json: {:success=>true}, status: :ok
       end
 
       def user_params

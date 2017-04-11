@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  apipie
   def draw(routes_name, version)
     instance_eval(File.read(Rails.root.join("config/routes/api/#{version}/#{routes_name}.rb")))
   end

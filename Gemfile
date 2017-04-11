@@ -61,4 +61,7 @@ gem 'authority', '~> 3.2.2'
 gem 'rolify'
 gem 'active_attr'
 
+gem 'apipie-rails'
+gem 'rack-cors', :require => 'rack/cors'
+
 ruby '2.4.0'
