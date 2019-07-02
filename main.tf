@@ -12,8 +12,8 @@ resource "heroku_app" "default" {
 
     config_vars = {
       RAILS_ENV = "production"
-      FIREBASE_URI = ""
-      FIREBASE_SECERT_KEY = ""
+      FIREBASE_URI = "firebase_uri"
+      FIREBASE_SECERT_KEY = "firebase_secret_key"
     }
 }
 
