@@ -12,8 +12,8 @@ resource "heroku_app" "default" {
 
     config_vars = {
       RAILS_ENV = "production"
-      FIREBASE_URI = "https://addressbook-contacts.firebaseio.com"
-      FIREBASE_SECERT_KEY = "AIzaSyCsS2AcN4yZY8iQwJGtph29PWHcQd3tsl4"
+      FIREBASE_URI = ""
+      FIREBASE_SECERT_KEY = ""
     }
 }
 
